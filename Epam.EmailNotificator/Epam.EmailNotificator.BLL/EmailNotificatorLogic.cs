@@ -1,9 +1,7 @@
-﻿using Epam.Email.Notificator.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Epam.Email.Notificator.Entities;
+using System.Linq;	
+using Epam.EmailNotificator.BLL.Excel_Related;
 
 namespace Epam.EmailNotificator.BLL
 {
@@ -11,9 +9,27 @@ namespace Epam.EmailNotificator.BLL
     {
         public void ParseFile(AppFile file)
         {
-            //Excel Logic parse to dto
+	        try
+	        {
+				using (var parser = new ExcelMessageAdapter(file.Data))
+				{
+					var messages = parser.ParseMessages().ToArray();
 
-           //Save to db
+					// TODO: convert messages to dtos and so on
+
+					//Save to db
+				}
+			}
+	        catch (IncorrectEntryException ex)
+	        {
+				// file is correct, but data in a cel isn't
+		        throw;
+	        }
+	        catch (IncorrectFileException ex)
+	        {
+				// wrong file
+		        throw;
+	        }
         }
     }
 }
