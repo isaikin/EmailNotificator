@@ -53,6 +53,7 @@
     <Compile Include="Excel Related\ExcelMessageInfo.cs" />
     <Compile Include="Excel Related\IncorrectEntryException.cs" />
     <Compile Include="Excel Related\IncorrectFileException.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

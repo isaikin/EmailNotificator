@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{080788FC-3553-4E1E-9D82-3B3C0C8FAE05}</ProjectGuid>
+    <ProjectGuid>{3711F174-B064-4FA3-8CDF-79373C7D1001}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Epam.Email.Notificator.Entities</RootNamespace>
-    <AssemblyName>Epam.Email.Notificator.Entities</AssemblyName>
+    <RootNamespace>Epam.EmailNotificator.BLL</RootNamespace>
+    <AssemblyName>Epam.EmailNotificator.BLL</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,8 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=4.5.3.2, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.2\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,13 +48,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppFile.cs" />
-    <Compile Include="AppMessageInfo.cs" />
-    <Compile Include="AppUser.cs" />
-    <Compile Include="AttacheFile.cs" />
+    <Compile Include="EmailNotificatorLogic.cs" />
+<<<<<<< HEAD
+    <Compile Include="Excel Related\ExcelMessageAdapter.cs" />
+    <Compile Include="Excel Related\ExcelMessageInfo.cs" />
+    <Compile Include="Excel Related\IncorrectEntryException.cs" />
+    <Compile Include="Excel Related\IncorrectFileException.cs" />
+=======
+    <Compile Include="Program.cs" />
+>>>>>>> 374704da8b5a46e05dede2dcfb3e6be9f96100e4
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sender.cs" />
-    <Compile Include="SendMessage.cs" />
+    <Compile Include="SendMessageLogic.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Epam.Email.Notificator.Entities\Epam.Email.Notificator.Entities.csproj">
+      <Project>{080788fc-3553-4e1e-9d82-3b3c0c8fae05}</Project>
+      <Name>Epam.Email.Notificator.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Epam.Email.Notificator.Entities\Epam.Email.Notificator.Entities.csproj">
+      <Project>{080788FC-3553-4E1E-9D82-3B3C0C8FAE05}</Project>
+      <Name>Epam.Email.Notificator.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
